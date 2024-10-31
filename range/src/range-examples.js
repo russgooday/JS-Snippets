@@ -32,7 +32,7 @@ console.log('(0, 10)[-1]', range5.index(-1)); // Output: 9
 const range6 = new Range(0, 20, 2);
 const slicedRange = range6.slice(2, 5);
 
-console.log('(0, 20, 2)[2:5]', ...slicedRange)
+console.log('(0, 20, 2)[2:5]', ...slicedRange);
 // Output: 4, 6, 8
 
 // Example 7: Reverse with Slice
@@ -44,20 +44,22 @@ console.log('(0, 10, 2)[::-1]', ...reversedRange);
 
 // Example 8: Error Handling
 try {
-  const invalidRange = new Range();
+    // invalidRange - No arguments provided
+    new Range();
 } catch (error) {
-  console.log(error.message); // Output: Range expected at least 1 argument, got 0
+    console.log(error.message); // Output: Range expected at least 1 argument, got 0
 }
 
 try {
-  const invalidStepRange = new Range(0, 10, 0);
+    // invalidStepRange - Step value is zero
+    new Range(0, 10, 0);
 } catch (error) {
-  console.log(error.message); // Output: step must not be zero
+    console.log(error.message); // Output: step must not be zero
 }
 
 try {
-  const rangeWithInvalidIndex = new Range(0, 5);
-  console.log(rangeWithInvalidIndex.index(10));
+    const rangeWithInvalidIndex = new Range(0, 5);
+    console.log(rangeWithInvalidIndex.index(10));
 } catch (error) {
-  console.log(error.message); // Output: index 10 out of range
+    console.log(error.message); // Output: index 10 out of range
 }
