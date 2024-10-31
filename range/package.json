@@ -1,0 +1,17 @@
+{
+  "name": "range",
+  "version": "1.0.0",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Russell Gooday",
+  "license": "ISC",
+  "description": "Basic clone of Python's Range function",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
