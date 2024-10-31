@@ -1,0 +1,11 @@
+{
+  "name": "data-wrangler",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Russell Gooday",
+  "license": "ISC",
+  "description": "Manipulate and merge collections of data"
+}
