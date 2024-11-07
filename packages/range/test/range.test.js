@@ -1,4 +1,4 @@
-const { Range } = require('../src/range.js');
+import { Range } from '../src/range.js';
 
 describe(
     'Tests for Range class',

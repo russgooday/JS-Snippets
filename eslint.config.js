@@ -1,24 +1,19 @@
-const globals = require('globals');
-const pluginJs = require('@eslint/js');
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import jest from "eslint-plugin-jest";
 
-module.exports = [
+export default [
     {
-        files: ['**/*.js', 'test/**'],
         languageOptions: {
-            sourceType: 'commonjs',
-            globals: {
-                ...globals.browser,
-                fetch: true,
-                console: true,
-                describe: 'readonly',
-                test: 'readonly',
-                expect: 'readonly'
-            }
+            globals: globals.browser
         }
     },
     pluginJs.configs.recommended,
     {
+        ...jest.configs['flat/recommended'],
         rules: {
+            ...jest.configs['flat/recommended'].rules,
+            'jest/prefer-expect-assertions': 'off',
             'padded-blocks': 0,
             indent: ['error', 4],
             'no-multiple-empty-lines': 0,
@@ -27,7 +22,7 @@ module.exports = [
             'no-return-assign': 0,
             'no-param-reassign': 0,
             'comma-dangle': ['error', 'never'],
-            'no-console': 0,
+            'no-console': 'off',
             'no-restricted-syntax': 0,
             semi: ['error', 'always']
         }
