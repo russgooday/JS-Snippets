@@ -1,4 +1,16 @@
 {
+  "name": "russgooday",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "email": "rpg_digital@yahoo.co.uk",
+    "name": "Russell Gooday"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "eslint": "^9.13.0"
   },

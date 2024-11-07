@@ -1,6 +1,7 @@
 {
   "name": "range",
   "version": "1.0.0",
+  "main": "src/main.js",
   "directories": {
     "test": "test"
   },
