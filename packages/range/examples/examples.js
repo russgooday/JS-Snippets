@@ -1,4 +1,4 @@
-import { Range } from './range.js';
+import { Range } from '@russgooday/range';
 
 // Examples
 
@@ -28,10 +28,11 @@ const range5 = new Range(0, 10); // 0,1,2,3,4,5,6,7,8,9
 console.log('(0, 10)[3]', range5.index(3)); // Output: 3
 console.log('(0, 10)[-1]', range5.index(-1)); // Output: 9
 
-// Example 6: Slicing a Range
+// Example 6: Slicing a Range (Returns a new Range object)
 const range6 = new Range(0, 20, 2);
 const slicedRange = range6.slice(2, 5);
-
+console.log(slicedRange);
+// Range { start: 4, stop: 10, step: 2 }
 console.log('(0, 20, 2)[2:5]', ...slicedRange);
 // Output: 4, 6, 8
 

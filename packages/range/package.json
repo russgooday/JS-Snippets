@@ -1,19 +1,30 @@
 {
-  "name": "range",
-  "version": "1.0.0",
+  "name": "@russgooday/range",
+  "version": "1.1.0",
   "main": "src/main.js",
+  "types": "src/main.d.ts",
   "type": "module",
   "directories": {
+    "example": "examples",
     "test": "test"
   },
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "examples": "node ./examples/examples.js"
   },
   "keywords": [],
   "author": "Russell Gooday",
   "license": "ISC",
   "description": "Basic clone of Python's Range function",
-  "devDependencies": {
-    "esm": "^3.2.25"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russgooday/JS-Snippets.git#main"
+  },
+  "bugs": {
+    "url": "https://github.com/russgooday/JS-Snippets/issues"
+  },
+  "homepage": "https://github.com/russgooday/JS-Snippets/tree/main#readme",
+  "dependencies": {
+    "@russgooday/range": "^1.1.0"
   }
 }
