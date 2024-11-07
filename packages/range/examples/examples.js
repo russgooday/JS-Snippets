@@ -1,4 +1,4 @@
-const { Range } = require('./range.js');
+import { Range } from './range.js';
 
 // Examples
 

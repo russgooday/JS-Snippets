@@ -1,4 +1,4 @@
-const { _RangeIterator } = require('./internals/_range-iterator.js');
+import { _RangeIterator } from './internals/_range-iterator.js';
 
 class Range {
     /**
@@ -160,4 +160,4 @@ class Range {
     }
 }
 
-module.exports = { Range };
+export { Range };

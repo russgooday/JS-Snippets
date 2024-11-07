@@ -2,17 +2,18 @@
   "name": "range",
   "version": "1.0.0",
   "main": "src/main.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "Russell Gooday",
   "license": "ISC",
   "description": "Basic clone of Python's Range function",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "esm": "^3.2.25"
   }
 }

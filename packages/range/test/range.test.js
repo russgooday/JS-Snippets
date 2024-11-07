@@ -1,4 +1,5 @@
-import { Range } from '../src/range.js';
+import { expect, describe, test } from 'vitest';
+import { Range } from '../src/main.js';
 
 describe(
     'Tests for Range class',
