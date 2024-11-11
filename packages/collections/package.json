@@ -2,17 +2,24 @@
     "name": "@russgooday/collections",
     "version": "1.0.0",
     "license": "MIT",
-    "author": {
-        "email": "rpg_digital@yahoo.co.uk",
-        "name": "Russell Gooday"
-    },
+    "author": "Russell Gooday <rpg_digital@yahoo.co.uk>",
     "type": "module",
+    "main": "dist/collections.js",
+    "types": "index.d.ts",
+    "directories": {
+        "example": "examples",
+        "test": "tests"
+    },
     "exports": {
         "import": "./index.js",
         "require": "./index.cjs"
     },
     "description": "A library of general functions for working on collection types",
-    "keywords": ["flatMap", "flatMapObj", "prop"],
+    "keywords": [
+        "flatMap",
+        "flatMapObj",
+        "prop"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/russgooday/JS-Snippets.git#main"
@@ -23,8 +30,7 @@
     },
     "dependencies": {
         "core-js": "^3.39.0",
-        "vite": "^5.4.10",
-        "@russgooday/collections": "^1.0.0"
+        "vite": "^5.4.10"
     },
     "devDependencies": {
         "@babel/core": "^7.26.0",
@@ -32,10 +38,16 @@
         "@eslint/js": "^9.14.0",
         "@rollup/plugin-babel": "^6.0.4",
         "@rollup/plugin-node-resolve": "^15.3.0",
+        "@russgooday/collections": "^1.0.0",
+        "@types/node": "^22.9.0",
         "eslint": "^9.14.0",
         "eslint-plugin-jsdoc": "^50.4.3",
         "globals": "^15.12.0",
         "rollup": "^4.25.0",
         "vitest": "^2.1.4"
-    }
+    },
+    "bugs": {
+        "url": "https://github.com/russgooday/JS-Snippets/issues"
+    },
+    "homepage": "https://github.com/russgooday/JS-Snippets/tree/main#readme"
 }

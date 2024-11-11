@@ -15,6 +15,7 @@
     "vitest": "^2.1.4"
   },
   "dependencies": {
+    "@russgooday/collections": "^1.0.0",
     "russgooday": "github:russgooday/JS-Snippets#main",
     "vite": "^5.4.10"
   },
