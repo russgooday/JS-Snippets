@@ -1,12 +1,8 @@
 {
-  "name": "russgooday",
+  "name": "@russgooday/russgooday",
   "version": "0.0.0",
-  "private": true,
   "license": "MIT",
-  "author": {
-    "email": "rpg_digital@yahoo.co.uk",
-    "name": "Russell Gooday"
-  },
+  "author": "Russell Gooday <rpg_digital@yahoo.co.uk>",
   "type": "module",
   "workspaces": [
     "packages/*"
@@ -19,6 +15,20 @@
     "vitest": "^2.1.4"
   },
   "dependencies": {
+    "russgooday": "github:russgooday/JS-Snippets#main",
     "vite": "^5.4.10"
-  }
+  },
+  "description": "A clone of Python's range function",
+  "main": "eslint.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russgooday/JS-Snippets.git#main"
+  },
+  "bugs": {
+    "url": "https://github.com/russgooday/JS-Snippets/issues"
+  },
+  "homepage": "https://github.com/russgooday/JS-Snippets/tree/main#readme"
 }

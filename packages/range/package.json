@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/russgooday/JS-Snippets/issues"
   },
-  "homepage": "https://github.com/russgooday/JS-Snippets/tree/main#readme",
+  "homepage": "https://github.com/russgooday/JS-Snippets/tree/main/packages/range#readme",
   "dependencies": {
     "@russgooday/range": "^1.1.0"
   }
