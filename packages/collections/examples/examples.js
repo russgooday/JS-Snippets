@@ -1,6 +1,6 @@
-import {flatMap, prop} from '../dist/collections.js';
+import {flatMap, prop, pick} from '../dist/collections.js';
 
-const users = [
+const students = [
     {id: 1, firstName: "Francine", lastName: "McQuorkel", age: 29},
     {id: 2, firstName: "Nikita", lastName: "Petrillo", age: 24},
     {id: 3, firstName: "Kristoforo", lastName: "Callaghan", age: 45},
@@ -13,30 +13,43 @@ const users = [
     {id: 10, firstName: "Karol", lastName: "Stollberger", age: 43}
 ];
 
-const groupedByAge = Map.groupBy(users, prop('age')); // → Map
 // flatMap works with Arrays, Maps, and Sets
 const groupWithSameAges = flatMap(
-    (user, age) => (user.length > 1)
-        ? [{
-            age,
-            user_ids: user.map(prop('id')).join(', '),
-            count: user.length
-          }]
-        : [],
-    groupedByAge
+    (user) => (user.length > 1) ? [user.map(pick('age', 'firstName', 'lastName'))] : [],
+    // Map object with students grouped by age
+    Map.groupBy(students, prop('age'))
 );
 console.log(JSON.stringify(groupWithSameAges, null, 2));
 /* Output:
 [
-  {
-    "age": 45,
-    "user_ids": "3, 4",
-    "count": 2
-  },
-  {
-    "age": 22,
-    "user_ids": "7, 8, 9",
-    "count": 3
-  }
+  [
+    {
+      "age": 45,
+      "firstName": "Kristoforo",
+      "lastName": "Callaghan"
+    },
+    {
+      "age": 45,
+      "firstName": "Roz",
+      "lastName": "Cridlon"
+    }
+  ],
+  [
+    {
+      "age": 22,
+      "firstName": "Blancha",
+      "lastName": "Hyrons"
+    },
+    {
+      "age": 22,
+      "firstName": "Celina",
+      "lastName": "Paylie"
+    },
+    {
+      "age": 22,
+      "firstName": "Peggie",
+      "lastName": "McCutheon"
+    }
+  ]
 ]
 */

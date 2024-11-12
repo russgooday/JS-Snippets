@@ -5,7 +5,12 @@
       {
         "targets": "defaults",
         "useBuiltIns": false,
-        "shippedProposals": true
+        "shippedProposals": true,
+        "exclude": [
+          "transform-object-rest-spread",
+          "transform-spread",
+          "transform-parameters"
+        ]
       }
     ]
   ]

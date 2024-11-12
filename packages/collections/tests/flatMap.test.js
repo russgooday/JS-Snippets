@@ -1,6 +1,6 @@
 // Description: Tests for flatMap function.
 import { expect, describe, test } from 'vitest';
-import { flatMap } from '@russgooday/collections';
+import { flatMap } from '../src/flatMap.js';
 
 describe(
     'Tests for flatMap function',
