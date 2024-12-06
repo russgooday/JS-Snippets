@@ -1,25 +1,19 @@
-import { babel } from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 
 export default {
-    input: 'src/index.js', // Entry file
+    external: ['js-beautify'],
+    input: 'src/index.js',
     output: [
         {
-            file: 'dist/collections.js', // ES Module output
-            format: 'es',
-            sourcemap: true
+            file: 'dist/collections.js',
+            format: 'es'
         },
         {
-            file: 'dist/collections.cjs', // CommonJS output
-            format: 'cjs',
-            sourcemap: true
+            file: 'dist/collections.cjs',
+            format: 'cjs'
         }
     ],
     plugins: [
-        resolve(),
-        babel({
-            babelHelpers: 'bundled',
-            exclude: 'node_modules/**'
-        })
+        resolve()
     ]
 };
