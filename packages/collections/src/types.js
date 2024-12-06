@@ -1,73 +1,73 @@
 // Type checking functions
-const TYPES = {
-    'arguments': '[object Arguments]',
-    'array': '[object Array]',
-    'asyncfunction': '[object AsyncFunction]',
-    'boolean': '[object Boolean]',
-    'date': '[object Date]',
-    'domexception': '[object DOMException]',
-    'error': '[object Error]',
-    'function': '[object Function]',
-    'generatorfunction': '[object GeneratorFunction]',
-    'map': '[object Map]',
-    'number': '[object Number]',
-    'null': '[object Null]',
-    'object': '[object Object]',
-    'promise': '[object Promise]',
-    'proxy': '[object Proxy]',
-    'regexp': '[object RegExp]',
-    'set': '[object Set]',
-    'string': '[object String]',
-    'symbol': '[object Symbol]',
-    'undefined': '[object Undefined]',
-    'weakmap': '[object WeakMap]',
-    'weakset': '[object WeakSet]'
-};
-
 const toString = {}.toString;
 
+const TYPES = {
+    'Arguments': '[object Arguments]',
+    'Array': '[object Array]',
+    'AsyncFunction': '[object AsyncFunction]',
+    'Boolean': '[object Boolean]',
+    'Date': '[object Date]',
+    'DOMException': '[object DOMException]',
+    'Error': '[object Error]',
+    'Function': '[object Function]',
+    'GeneratorFunction': '[object GeneratorFunction]',
+    'Map': '[object Map]',
+    'Number': '[object Number]',
+    'Null': '[object Null]',
+    'Object': '[object Object]',
+    'Promise': '[object Promise]',
+    'Proxy': '[object Proxy]',
+    'RegExp': '[object RegExp]',
+    'Set': '[object Set]',
+    'String': '[object String]',
+    'Symbol': '[object Symbol]',
+    'Undefined': '[object Undefined]',
+    'WeakMap': '[object WeakMap]',
+    'WeakSet': '[object WeakSet]'
+};
+
+
 /**
- * isTypeOf
- * checks if an object is of the specified type.
- * @function
- * @param {any} obj Object to check type of.
- * @param {string} type Type to check against.
- * @returns {boolean} True if object is of the specified type, otherwise false.
+ * Strict type checking methods
  * @example
- * isTypeOf([], 'array'); // true
- * isTypeOf({}, 'array'); // false
+ * types.isString('abc') // true
+ * types.isObject([1,2,3]) // false
+ * types.isArray([1,2,3]) // true
  */
-function isTypeOf (obj, type) {
-    if (toString.call(type) !== TYPES.string) {
-        throw new TypeError(`${typeof(type)} is not a string`);
-    }
-    return toString.call(obj) === TYPES[type];
+const types = Object.fromEntries(
+    Object.entries(TYPES).map(
+        ([key, value]) => ([`is${key}`, (obj) => toString.call(obj) === value])
+    )
+);
+
+/**
+ * isIterable - tests if a given object is iterable
+ * @param {any} obj the object to test
+ * @param {boolean} ignoreStrings exclude strings(optional), defaults to false
+ * @returns {boolean} true if the object is iterable, false otherwise
+ * @example
+ * const myMap = new Map([['a', 1], ['b', 2]])
+ * isIterable(myMap) // true
+ * isIterable('abc', true) // false
+ */
+function isIterable (obj, ignoreStrings = false) {
+    // optional chaining Symbol.iterator as 'null' or 'undefined' do not have this property
+    const hasIterator = typeof obj?.[Symbol.iterator] === 'function';
+    if (!hasIterator || (ignoreStrings && toString.call(obj) === TYPES.String))
+        return false;
+    return true;
 }
 
 /**
- * isSomeTypeOf
- * checks if an object is one of the specified types.
- * @function
- * @param {any} obj Object to check type of.
- * @param {string[]} types Types to check against.
- * @returns {boolean} True if object is of the specified type, otherwise false.
+ * Returns the internal [[Class]] of an object.
+ * @param {any} obj The object whose type is to be determined.
+ * @returns {string} The type of the object as a string.
  * @example
- * isSomeTypeOf([], ['string', 'array']); // true
- * isSomeTypeOf([], ['object', 'string']); // false
+ * getType([1, 2, 3]) // 'Array'
+ * getType(new Map([['a', 1], ['b', 2]])) // 'Map'
  */
-function isSomeTypeOf (obj, types) {
-    if (toString.call(types) !== TYPES.array) {
-        throw new TypeError(`${typeof(types)} is not an array`);
-    }
-
-    const objType = toString.call(obj);
-
-    for (const type of types) {
-        if (objType === TYPES[type]) {
-            return true;
-        }
-    }
-    return false;
+function getType (obj) {
+    return toString.call(obj).slice(8, -1);
 }
 
-export { TYPES, isTypeOf, isSomeTypeOf };
+export { getType, isIterable, TYPES, toString, types };
