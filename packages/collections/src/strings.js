@@ -31,7 +31,7 @@ const getConstructorName = (obj) => {
  * @example
  * const obj = { a: 1, b: [2, 3] };
  * obj.b.push((x, y) => x + y);
- * const serialized = Serialize.toString(obj);
+ * Serialize.toString(obj); // returns
  * `Object {
  *      a: 1,
  *      b: Array(3) [
