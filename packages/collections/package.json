@@ -4,7 +4,8 @@
     "license": "MIT",
     "author": "Russell Gooday <rpg_digital@yahoo.co.uk>",
     "type": "module",
-    "main": "dist/collections.js",
+    "main": "dist/cjs/index.js",
+    "module": "dist/ejs/index.js",
     "types": "index.d.ts",
     "files": [
         "index.d.ts",
@@ -36,15 +37,12 @@
     "dependencies": {
         "@russgooday/collections": "^1.0.2",
         "core-js": "^3.39.0",
+        "js-beautify": "^1.15.1",
         "vite": "^5.4.10"
     },
     "devDependencies": {
-        "@babel/cli": "^7.25.9",
-        "@babel/core": "^7.26.0",
-        "@babel/plugin-transform-spread": "^7.25.9",
-        "@babel/preset-env": "^7.26.0",
         "@eslint/js": "^9.14.0",
-        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^28.0.1",
         "@rollup/plugin-node-resolve": "^15.3.0",
         "@types/node": "^22.9.0",
         "eslint": "^9.14.0",
