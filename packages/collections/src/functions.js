@@ -1,5 +1,5 @@
 /**
- * wraps - A function that wraps a function with its own properties e.g. name, length.
+ * wraps - Updates a wrapper function with properties from the wrapped function.
  * @param {Function} fn - The function to wrap.
  * @returns {Function} A wrapped function with its own properties.
  */
@@ -9,7 +9,7 @@ function wraps(fn) {
             wrapper, {
                 name: Object.getOwnPropertyDescriptor(fn, 'name'),
                 toString: {
-                    value: () => fn.toString().replace(/[\r\n ]+/g, ' ')
+                    value: fn.toString.bind(fn)
                 }
             }
         );
